@@ -21,7 +21,7 @@ Installation
 The script can be installed via `pip`:
 
 ```
-pip3 install git+https://github.com/hjalti/mossum@master
+pip3 install git+https://github.com/jmoeyersons/mossum@master
 ```
 
 Please note that this project is only developed and tested using Python 3.
