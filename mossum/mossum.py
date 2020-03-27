@@ -209,7 +209,7 @@ def get_results(moss_url):
     if len(ps) >= 2:
         name = ps[2].text.strip()
     if not name:
-        name = 'moss_%s' % date_str()
+        name = 'moss_%s' % moss_url[33:]
 
     matches = []
 
