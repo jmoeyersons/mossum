@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Mossum is a tool for summarizing results from Stanford's Moss. The tool
+Mossum-local is a tool for summarizing results from Stanford's Moss. The tool
 generates a graph for (multiple) results from Moss, which can help in
 identifying groups of students that have shared solutions.
 
@@ -175,7 +175,7 @@ def generate_report(results):
     if args.output:
         base = args.output
     else:
-        base = '+'.join(map(lambda x:x.name, results))
+        base = 'report_all_labs'
     filename = '%s.txt' % base
 
     with open(filename, 'w') as f:
@@ -209,7 +209,7 @@ def get_results(moss_url):
     if len(ps) >= 2:
         name = ps[2].text.strip()
     if not name:
-        name = 'moss_%s' % moss_url[33:]
+        name = 'moss_%s' % moss_url[22:-1]
 
     matches = []
 
@@ -218,7 +218,7 @@ def get_results(moss_url):
         first = parse_col(first)
         second  = parse_col(second)
         lines = int(lines)
-        url = row.a['href']
+        url = moss_url + row.a['href']
         matches.append(Match(first, second, lines, url))
 
     fil = Filter()

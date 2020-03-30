@@ -4,13 +4,13 @@
 from distutils.core import setup
 
 setup(
-    name='mossum',
+    name='mossum_local',
     version='0.1.4',
     author='Hjalti Magnússon',
     author_email='hjaltmann@gmail.com',
-    packages=['mossum'],
-    scripts=['bin/mossum'],
-    url='https://github.com/hjalti/mossum',
+    packages=['mossum_local'],
+    scripts=['bin/mossum_local'],
+    url='https://github.com/hjalti/mossum_local',
     license='LICENSE',
     description='',
     long_description='',

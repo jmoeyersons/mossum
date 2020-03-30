@@ -3,7 +3,7 @@
 
 import os
 import sys
-from mossum import mossum
+from mossum_local import mossum_local
 
 if __name__ == "__main__":
-    mossum.main()
+    mossum_local.main()
