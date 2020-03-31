@@ -176,7 +176,7 @@ def generate_report(results):
         base = args.output
     else:
         base = '+'.join(map(lambda x:x.name, results))
-    filename = '%s.txt' % base
+    filename = 'report.txt'
 
     with open(filename, 'w') as f:
         for pair, matches in sorted(pairs.items(),
@@ -208,12 +208,13 @@ def get_results(moss_url):
     name = None
     row = soup.table('tr')[1:2][0]
     first, second, lines = map(lambda x:x.text, row('td'))
-    name, per = first.split()
+    line, per = first.split()
     # Regex must be optimized, but this will work...
-    m = re.match(r".*/([a-z- ]*)/[A-Za-z_öë ]*\.[a-z]+", name)
+    m = re.match(r".*/([a-z- ]*)/[A-Za-z_öë ]*\.[a-z]+", line)
     if m:
         if m.groups():
             name = '_'.join(m.groups())
+    
     if not name:
         name = 'moss_%s' % moss_url[33:]
 
