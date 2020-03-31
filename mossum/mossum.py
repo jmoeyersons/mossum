@@ -206,8 +206,14 @@ def get_results(moss_url):
 
     ps = soup('p')
     name = None
-    if len(ps) >= 2:
-        name = ps[2].text.strip()
+    row = soup.table('tr')[1:2][0]
+    first, second, lines = map(lambda x:x.text, row('td'))
+    name, per = first.split()
+    # Regex must be optimized, but this will work...
+    m = re.match(r".*/([a-z- ]*)/[A-Za-z_öë ]*\.[a-z]+", name)
+    if m:
+        if m.groups():
+            name = '_'.join(m.groups())
     if not name:
         name = 'moss_%s' % moss_url[33:]
 
